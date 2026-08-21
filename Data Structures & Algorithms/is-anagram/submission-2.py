@@ -1,0 +1,20 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        dict_s = {}
+        dict_t = {}
+        for char in s:
+            dict_s[char] = dict_s.get(char,0) + 1
+        for char in t:
+            dict_t[char] = dict_t.get(char,0)+1
+        #now compare quantity of characters
+        for s_key in dict_s:
+            try:
+                if dict_s[s_key] != dict_t[s_key]:
+                    return False
+            except:
+                return False
+        return True
+
+        
